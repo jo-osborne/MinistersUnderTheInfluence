@@ -1,6 +1,6 @@
 import unittest
 import requests
-from datapreprocessor.personclient import PersonClient
+from datapreprocessor.meetingsapiclient import personClient
 from settings import INTEGRATION_TESTS
 from settings import MEETINGS_API_BASE_URL
 
@@ -8,7 +8,7 @@ from settings import MEETINGS_API_BASE_URL
 class PersonClientTest(unittest.TestCase):
 
     def setUp(self):
-        self.client = PersonClient(MEETINGS_API_BASE_URL)
+        self.client = personClient(MEETINGS_API_BASE_URL)
 
     def tearDown(self):
         people = self.client.get_all()

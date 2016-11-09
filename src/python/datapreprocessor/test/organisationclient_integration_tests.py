@@ -4,13 +4,13 @@ import requests
 from settings import INTEGRATION_TESTS
 from settings import MEETINGS_API_BASE_URL
 
-from datapreprocessor.organisationclient import OrganisationClient
+from datapreprocessor.meetingsapiclient import organisationClient
 
 @unittest.skipUnless(INTEGRATION_TESTS, 'api integration tests')
 class OrganisationClientTest(unittest.TestCase):
 
     def setUp(self):
-        self.client = OrganisationClient(MEETINGS_API_BASE_URL)
+        self.client = organisationClient(MEETINGS_API_BASE_URL)
 
     def tearDown(self):
         for org in self.client.get_all():
