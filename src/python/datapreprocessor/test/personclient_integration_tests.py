@@ -1,9 +1,7 @@
 import unittest
 import requests
-import os
 from datapreprocessor.personclient import PersonClient
-
-INTEGRATION_TESTS = os.environ.get('INTEGRATION_TESTS', False)
+from settings import INTEGRATION_TESTS
 
 @unittest.skipUnless(INTEGRATION_TESTS, 'api integration tests')
 class PersonClientTest(unittest.TestCase):
