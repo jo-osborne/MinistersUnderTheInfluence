@@ -2,6 +2,7 @@ import unittest
 import requests
 from datapreprocessor.personclient import PersonClient
 from settings import INTEGRATION_TESTS
+from settings import MEETINGS_API_BASE_URL
 
 @unittest.skipUnless(INTEGRATION_TESTS, 'api integration tests')
 class PersonClientTest(unittest.TestCase):
@@ -9,7 +10,7 @@ class PersonClientTest(unittest.TestCase):
     def test_person_lifecycle(self):
         """This test verifies that a person can be created, retrieved and deleted"""
         person_name = "Freddy the Frog"
-        client = PersonClient('http://localhost:3000/api/v1/')
+        client = PersonClient(MEETINGS_API_BASE_URL)
 
         # Initial Retrieve (when person does not exist)
         no_person = client.get_by_name(person_name)
